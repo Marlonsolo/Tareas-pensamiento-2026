@@ -1,0 +1,57 @@
+while True:
+    print("\n--- MENÚ DE CONVERSIÓN ---")
+    print("0. saludar")
+    print("1. Convertir a Numeración Maya")
+    print("2. Convertir a Binario")
+    print("3. Salir")
+    op = input("> ")
+    
+    if op=="0":
+            print("Hola bienvenido")
+
+    if op == "1":
+        n = int(input("Introduce el número decimal: "))
+        
+        if n == 0:
+            print("Nivel 1: [ Caracol (0) ]")
+        else:
+            nivel = 1
+            temp_n = n  # Usamos una copia para no perder el valor original
+            while temp_n > 0:
+                actual = temp_n % 20
+                puntos = actual % 5
+                rayas = actual // 5
+                
+                print(f"Nivel {nivel} (x{20**(nivel-1)}):")
+                if actual == 0:
+                    print("  [ Caracol ]")
+                else:
+                    if puntos > 0: 
+                        print("  " + "." * puntos)
+                    if rayas > 0: 
+                        # Imprime las rayas una debajo de otra
+                        for _ in range(rayas):
+                            print("  —")
+                
+                temp_n //= 20
+                nivel += 1
+                print("-" * 20)
+
+    elif op == "2":
+        n = int(input("Introduce el número decimal: "))
+        if n == 0:
+            print("Binario: 0")
+        else:
+            binario = ""
+            temp_n = n
+            while temp_n > 0:
+                residuo = temp_n % 2
+                binario = str(residuo) + binario
+                temp_n //= 2
+            print(f"Decimal: {n} -> Binario: {binario}")
+
+    elif op == "3":
+        print("Saliendo del programa...")
+        break
+    else:
+        print("Opción no válida, intenta de nuevo.")
