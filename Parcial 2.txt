@@ -1,0 +1,85 @@
+land = []
+
+tam=int(input("ingrese el tamaño del arreglo: "))
+num=int(input("ingrese el numero:"))
+cont=0
+for i in range (1, tam+1):
+    cont=cont+num
+    land.append(cont)
+    
+print(land)
+
+
+
+land=[]
+urlan=[]
+tam=int(input("Ingrese el tamaño del arreglo: "))
+
+
+for i in range (1, tam+1):
+    nom=input("ingrese un nombre: ")
+    land.append(nom)
+    urlan.append(len(nom))
+
+print(land)
+print(urlan)
+
+clientes=[]
+resultados=[]
+
+cl=int(input("Ingrese cuantos clientes son: "))
+
+print("opciones: ")
+print("5. Excelentes")
+print("4. Muy bueno")
+print("3. Buena")
+print("2. Regular")
+print("1. Malo")
+
+cont=0
+op5=0
+op4=0
+op3=0
+op2=0
+op1=0
+
+for i in range(1, cl+1):
+    cont=cont+1
+    clientes.append(cont)
+    
+    op=int(input("Evalue la atencion del 5 a 1: "))
+    resultados.append(op)
+    if(op==5):
+        op5=op5+1
+    if(op==4):
+        op4=op4+1
+    if(op==3):
+        op3=op3+1
+    if(op==2):
+        op2=op2+1
+    if(op==1):
+        op1=op1+1
+
+print(clientes)
+print(resultados)
+print("Excelente: ",op5)
+print("Muy bueno: ",op4)
+print("Bueno:", op3)
+print("Regular:", op2)
+print("Malo:", op1)
+opfull=max(op1,op2,op3,op4,op5)
+print("la opcion mas elegida es: ", opfull)
+suma=0
+
+for m in resultados:
+    suma=suma+m
+    
+prom=suma/cl
+print("El promedio es: ", prom)
+
+aux=0
+for a in resultados:
+    if(prom>a):
+        aux=aux+1
+
+print("El porcentaje menor al promedio es: ",((aux*100)/cl),"%")
